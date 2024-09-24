@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RealTimeBgmSystemVer1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="camera-container">
+            <div id="liveView" class="videoView">
+                <video id="webcam" autoplay playsinline></video>
+                <canvas id="canvas" class="detection-canvas"></canvas>
+            </div>
+        </div>
+        <div class="control-panel">
+            <div class="button-container">
+                <button id="webcamButton" class="btn btn-primary">Start Camera</button>
+                <button id="stopWebcamButton" class="btn btn-danger hidden">Stop</button>
+                <button id="switchCameraButton" class="btn btn-secondary hidden">Switching</button>
+                <button id="refreshButton" class="btn btn-info hidden">Refresh</button>
+            </div>
+            <div class="volume-container">
+                <label for="volumeSlider">Volume:</label>
+                <input type="range" id="volumeSlider" min="-60" max="0" step="1" value="-10">
+                <span id="volumeValue">-10 dB</span>
+            </div>
+            <div class="drum-controls">
+                <div class="drum-control" id="kickControl">
+                    <div class="indicator-lamp"></div>
+                    <div class="knob-container">
+                        <div class="knob" id="kickKnob"></div>
+                        <label for="kickKnob">Kick</label>
+                    </div>
+                </div>
+                <div class="drum-control" id="snareControl">
+                    <div class="indicator-lamp"></div>
+                    <div class="knob-container">
+                        <div class="knob" id="snareKnob"></div>
+                        <label for="snareKnob">Snare</label>
+                    </div>
+                </div>
+                <div class="drum-control" id="hihatControl">
+                    <div class="indicator-lamp"></div>
+                    <div class="knob-container">
+                        <div class="knob" id="hihatKnob"></div>
+                        <label for="hihatKnob">Hi-hat</label>
+                    </div>
+                </div>
+                <div class="drum-control" id="tomControl">
+                    <div class="indicator-lamp"></div>
+                    <div class="knob-container">
+                        <div class="knob" id="tomKnob"></div>
+                        <label for="tomKnob">Tom</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="result-matrix" id="resultMatrix"></div>
+        <div class="console-container">
+            <h3>Detection Log</h3>
+            <div id="detectionConsole"></div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+    <script src="script.js"></script>
+</body>
+</html>
