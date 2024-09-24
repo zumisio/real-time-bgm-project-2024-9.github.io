@@ -64,7 +64,7 @@ const tom = new Tone.MembraneSynth({
 const drums = [kick, snare, hihat, tom];
 const drumControls = ['kickControl', 'snareControl', 'hihatControl', 'tomControl'];
 
-let currentDrumIndex = 0;
+let currentDrumIndex = -1;
 let lastDetectedObject = null;
 
 // ドラムパラメーターノブ
